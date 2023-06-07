@@ -22,7 +22,7 @@ int main() {
             int ig = static_cast<int>(255.999 * g);
             int ib = static_cast<int>(255.999 * b);
 
-            cout << ir << " " << ig << " " << ib << endl;
+            // cout << ir << " " << ig << " " << ib << endl;
         }
     }
 
