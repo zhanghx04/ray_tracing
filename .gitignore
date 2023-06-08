@@ -3,3 +3,6 @@
 
 ## build ##
 build/
+
+## result files
+*.ppm
