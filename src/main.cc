@@ -4,8 +4,29 @@
 
 #include <iostream>
 
+// (Pt - C)(Pt - C) = R^2       P(t) = A + tb
+// b*b*t^2 + 2tb(A - C) + (A - C)(A - C) - R^2 = 0
+// b: ray's direction
+// A: ray's origin
+// C: sphere center
+bool hit_sphere(const point3& center, double radius, const ray& r) {
+    vec3 oc = r.origin() - center;
+    auto a = dot(r.direction(), r.direction());
+    auto b = 2.0 * dot(oc, r.direction());
+    auto c = dot(oc, oc) - radius * radius;
+
+    auto discriminant = b * b - 4 * a * c;
+
+    // There are three case, no hit, 1 intersaction, 2 intersactions
+    return discriminant > 0;
+}
 
 color ray_color(const ray& r) {
+    // If the ray hits the sphere, then just show sphere's color
+    if (hit_sphere(point3(0, 0, -1), 0.5, r)) {
+        return color(1, 0, 0);
+    }
+
     vec3 unit_direction = unit_vector(r.direction());
     auto t = 0.5 * (unit_direction.y() + 1.0);
 
