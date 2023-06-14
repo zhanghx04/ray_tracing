@@ -6,6 +6,6 @@ echo "Start to build the project"
 make -C build/
 
 echo "Converting the result to [image.ppm]"
-build/ray_tracing.exe > image.ppm
+build/ray_tracing.exe > scene.ppm
 
 echo "Done!"

@@ -11,6 +11,7 @@ set( CMAKE_CXX_STANDARD 17 )
 
 # Source
 set ( SOURCE_COMMON
+    src/common/utility.h
     src/common/ray.h
     src/common/color.h
     src/common/vec3.h 
@@ -18,6 +19,9 @@ set ( SOURCE_COMMON
 
 set ( SOURCE_RAY_TRACING
     ${SOURCE_COMMON}
+    src/hittable_list.h
+    src/sphere.h
+    src/hittable.h
     src/main.cc
 )
 
