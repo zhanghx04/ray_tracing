@@ -11,6 +11,7 @@ set( CMAKE_CXX_STANDARD 17 )
 
 # Source
 set ( SOURCE_COMMON
+    src/common/camera.h
     src/common/utility.h
     src/common/ray.h
     src/common/color.h
