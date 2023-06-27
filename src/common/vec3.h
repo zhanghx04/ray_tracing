@@ -131,4 +131,20 @@ inline vec3 reflect(const vec3& v, const vec3& n) {
     return v - 2 * dot(v, n) * n;
 }
 
+// eta * sin(theta) = eta_prime * sin(theta_prime)
+// where theta is the angles from the normal
+// where eta is the refractive indices
+//      * air = 1.0
+//      * glass = 1.3 - 1.7
+//      * diamond = 2.4
+//  
+//  The goal is to get the refract angle theta_prime
+//  sin(theta_prime) = eta/eta_prime * sin(theta)
+inline vec3 refract(const vec3& uv, const vec3& n, double etai_over_etat) {
+    auto cos_theta = fmin(dot(-uv, n), 1.0);
+    vec3 r_out_perp = etai_over_etat * (uv + cos_theta * n);
+    vec3 r_out_parallel = -sqrt(fabs(1.0 - r_out_perp.length_square())) * n;
+    return r_out_perp + r_out_parallel;
+}
+
 #endif
