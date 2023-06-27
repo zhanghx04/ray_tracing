@@ -20,6 +20,7 @@ set ( SOURCE_COMMON
 
 set ( SOURCE_RAY_TRACING
     ${SOURCE_COMMON}
+    src/material.h
     src/hittable_list.h
     src/sphere.h
     src/hittable.h
