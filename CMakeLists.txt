@@ -1,8 +1,14 @@
 cmake_minimum_required(VERSION 3.20.0)
 
+# Set the C compiler to GCC
+set(CMAKE_C_COMPILER gcc)
+# Set the C++ compiler to g++
+set(CMAKE_CXX_COMPILER g++)
+
+
 project (ray_tracing
     VERSION 1.0
-    DESCRIPTION "Ray trace project"
+    DESCRIPTION "Ray tracing project"
     LANGUAGES CXX
 )
 
