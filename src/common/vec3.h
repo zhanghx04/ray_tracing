@@ -102,6 +102,14 @@ inline vec3 unit_vector(vec3 v) {
     return v / v.length();
 }
 
+inline vec3 random_in_unit_disk() {
+    while (true) {
+        auto p = vec3(random_double(-1.0, 1.0), random_double(-1.0, 1.0), 0);   // a vector on plane
+        if (p.length_square() >= 1) continue;
+        return p;
+    }
+}
+
 inline vec3 random_in_unit_sphere() {
     while (true) {
         auto p = vec3::random(-1, 1);
