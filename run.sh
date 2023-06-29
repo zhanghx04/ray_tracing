@@ -17,9 +17,9 @@ fi
 
 echo "Converting the result to [scene.ppm]"
 if [[ "$UNAME" == "Darwin" || "$UNAME" == "Linux" ]]; then
-    build/ray_tracing > scene.ppm
+    time build/ray_tracing > scene.ppm
 elif [[ "$UNAME" == CYGWIN* || "$UNAME" == MINGW* ]]; then
-    build/ray_tracing.exe > scene.ppm
+    time build/ray_tracing.exe > scene.ppm
 fi
 
 echo "Done!"
